@@ -1,12 +1,26 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 public class Operador {
 	private ArrayList<Juguete> listaJuguetes = new ArrayList<Juguete>();
+	private ArrayList<Proveedor> listaProveedores = new ArrayList<Proveedor>();
+	private int codigoProv = 0;
+	private int codigoJug = 0;
+	
+
+	
 	private Juguete nuevosDatos = new Juguete(0, 0, 0, 0, 0, null, 0, 0) ;
 //private ArrayList<Proveedor> listaProveedores = new ArrayList<Proveedor>();
 	
+	public Operador() {
 	
+	}
 	
 	//Operadores de Juguete
 	
@@ -28,6 +42,22 @@ public class Operador {
 			System.out.println("No hay proveedores con mas de 10 juguetes");
 	}
 	
+	public void mostrarProveedores(){
+		if(listaProveedores.size()!=0)
+		for (int i=0;i<listaProveedores.size();i++)
+		{		System.out.println(listaProveedores.get(i).getNumero() +". " + listaProveedores.get(i).getNombre());
+				
+		
+		}
+	}
+	
+	
+	public void IngresarProveedor(String nombre){
+		
+		Proveedor nuevoProv = new Proveedor(nombre, codigoProv+1);
+		listaProveedores.add(nuevoProv);
+		codigoProv++;
+	};
 	
 	
 	public void ingresarJuguete(double valorUnitario, double valorAdicional, 
