@@ -11,6 +11,24 @@ public class Operador {
 	//Operadores de Juguete
 	
 	
+	public void listarProveedores10(){ // Listar proveedores con mas de 10 juguetes.
+		int validos = 0;
+		if(listaProveedores.size()!=0)
+			for (int i=0;i<listaProveedores.size();i++)
+			{	if (listaProveedores.get(i).getJuguetes().size() >= 10)	
+				{	
+					validos++;
+					if(validos==1)
+						System.out.println("Los proveedores con mas de 10 juguetes son: ");
+						
+					System.out.println(listaProveedores.get(i).getNumero() +". " + listaProveedores.get(i).getNombre());
+				}
+			}
+		if (validos == 0)
+			System.out.println("No hay proveedores con mas de 10 juguetes");
+	}
+	
+	
 	
 	public void ingresarJuguete(double valorUnitario, double valorAdicional, 
 			int complejidad, int tipo, int codigo, String marca,
@@ -82,6 +100,8 @@ public class Operador {
 		}
 	}
 	}
+	
+	
 	
 	
 	
