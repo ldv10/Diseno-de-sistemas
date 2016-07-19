@@ -2,11 +2,22 @@ import java.awt.List;
 import java.util.ArrayList;
 
 public class Proveedor {
+	//atributos
 	private String nombre;
 	private int numero;
 	ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
 	
-	
+	//constructores
+	public Proveedor(){
+		nombre="";
+		numero=0;
+		ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
+	}
+	public void setProveedor(String nom, int num){
+		setNombre(nom);
+		setNumero(num);
+	}
+	//sets y gets
 	public String getNombre() {
 		return nombre;
 	}
