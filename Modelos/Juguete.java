@@ -6,6 +6,8 @@
 //Ejercicio de jugueteria 
 import java.util.Comparator;
 
+//Atributos requeridos para cada juguete
+
 public class Juguete {
 	private String nombre;
 	private double valorUnitario;
@@ -18,6 +20,8 @@ public class Juguete {
 	private double precioVenta;
 	private int enExistencia;
 	private int numProveedor;
+	
+	//Constructor de la clase
 	public Juguete( String nombre, double valorUnitario, double valorAdicional, int complejidad, int tipo, String marca,
 			int requesitoEdad, int enExistencia, int numProveedor, int codigo) {
 		super();
@@ -37,10 +41,11 @@ public class Juguete {
 		
 	}
 	
-	
+	// Implementacion del comparador por precio de venta
 	public static Comparator<Juguete> ComparadorPrecioVenta = new Comparator<Juguete>() {
 
 		public int compare(Juguete j1, Juguete j2) {
+			//Se hace la comparacion entre dos objetos de jueugete
 		   double Juguete1 = j1.getPrecioVenta();
 		   double Juguete2 = j2.getPrecioVenta();
 
@@ -53,9 +58,9 @@ public class Juguete {
 
 		
 		}};
-
+	//Implementacion del comparador por complejidad
 	public static Comparator<Juguete> ComparadorComplejidad = new Comparator<Juguete>() {
-
+	//Se toman de parametros dos objetos de tipo juguete
 			public int compare(Juguete j1, Juguete j2) {
 			   int Juguete1 = j1.getComplejidad();
 			   int Juguete2 = j2.getComplejidad();
@@ -70,7 +75,7 @@ public class Juguete {
 			
 			}};
 	
-	
+	//CSe calcula precio de venta de acuerdo a sus especificaciones, depiendo del tipo
 	public double CalcularPrecioVenta(){
 		if (tipo==1)
 			return valorUnitario + valorAdicional*complejidad;
@@ -79,7 +84,7 @@ public class Juguete {
 		return 0;
 	}
 	
-	
+	// SETTERS & GETTERS
 	public String getNombre() {
 		return nombre;
 	}
