@@ -29,18 +29,6 @@ public class Interfaz {
 		ControladorUsuarios conUs = new ControladorUsuarios();
 		Operador inventario = new Operador();
 		
-		conUs.nuevoUsuario("1", "1", 1);
-		conUs.nuevoUsuario("2", "2", 2);
-		conUs.nuevoUsuario("3", "3", 3);
-		inventario.IngresarProveedor("John");
-		inventario.IngresarProveedor("men");
-		inventario.IngresarJuguete("uno", 1, 1, 1, 1, "mar", 1, 1, 1);
-		inventario.IngresarJuguete("dos", 1, 2, 2, 1, "mar", 1, 1, 1);
-		inventario.IngresarJuguete("tres", 1, 2, 3, 1, "mar", 1, 1, 1);
-		inventario.IngresarJuguete("cuatro", 1, 2, 1, 1, "mar", 1, 1, 1);
-		inventario.IngresarJuguete("cinco", 3, 2, 1, 2, "mar", 1, 1, 2);
-		inventario.IngresarJuguete("seis", 4, 2, 1, 2, "mar", 1, 1, 1);
-		inventario.IngresarJuguete("siete", 1, 2, 1, 2, "mar", 1, 1, 2);
 		
 		
 		
