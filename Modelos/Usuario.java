@@ -6,7 +6,7 @@
 //Ejercicio de jugueteria 
 public class Usuario {
 	private String nombre, contrasena;
-
+	//constructor
 	private int tipo, id;
 	public Usuario(String nombre, String contrasena, int tipo, int id) {
 		super();
@@ -15,6 +15,7 @@ public class Usuario {
 		this.id = id;
 		this.tipo = tipo;
 	}
+	//sets y gets
 	public int getId() {
 		return id;
 	}
