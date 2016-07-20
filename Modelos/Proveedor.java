@@ -2,22 +2,18 @@ import java.awt.List;
 import java.util.ArrayList;
 
 public class Proveedor {
-	//atributos
 	private String nombre;
 	private int numero;
-	ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
+	private ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
 	
-	//constructores
-	public Proveedor(){
-		nombre="";
-		numero=0;
-		ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
+	
+	
+	public Proveedor(String nombre, int numero) {
+		super();
+		this.nombre = nombre;
+		this.numero = numero;
 	}
-	public void setProveedor(String nom, int num){
-		setNombre(nom);
-		setNumero(num);
-	}
-	//sets y gets
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -44,6 +40,7 @@ public class Proveedor {
 	
 	public void eliminarJ (Juguete juguete){
 		juguetes.remove(juguete);
+		
 	}
 	
 	
