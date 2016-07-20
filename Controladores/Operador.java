@@ -15,7 +15,7 @@ public class Operador {
 	
 
 	
-	private Juguete nuevosDatos = new Juguete(0, 0, 0, 0, 0, null, 0, 0) ;
+	
 //private ArrayList<Proveedor> listaProveedores = new ArrayList<Proveedor>();
 	
 	public Operador() {
@@ -60,27 +60,21 @@ public class Operador {
 	};
 	
 	
-	public void ingresarJuguete(double valorUnitario, double valorAdicional, 
-			int complejidad, int tipo, int codigo, String marca,
-			int requesitoEdad, int enExistencia){
+	public void IngresarJuguete(String nombre, double valorUnitario, double valorAdicional, int complejidad, int tipo, String marca,
+			int requesitoEdad, int enExistencia, int numProveedor){
 		
-	nuevosDatos.setCodigo(codigo);
-	nuevosDatos.setComplejidad(complejidad);
-	nuevosDatos.setEnExistencia(enExistencia);
-	nuevosDatos.setEnExistencia(enExistencia);
-	nuevosDatos.setMarca(marca);
-	
-	nuevosDatos.setRequesitoEdad(requesitoEdad);
-	nuevosDatos.setTipo(tipo);
-	nuevosDatos.setValorAdicional(valorAdicional);
-	nuevosDatos.setValorUnitario(valorUnitario);
-			
-	listaJuguetes.add(nuevosDatos);
-	
-	
-	
-	
-	}
+		Juguete nuevoJug = new Juguete(nombre, valorUnitario, valorAdicional, complejidad, tipo, marca, requesitoEdad, enExistencia, numProveedor, codigoJug+1);
+		listaJuguetes.add(nuevoJug);
+		codigoJug++;
+		for (int i=0;i<listaProveedores.size();i++)
+		{	if(listaProveedores.get(i).getNumero()== numProveedor)
+			{
+				listaProveedores.get(i).agregarJ(nuevoJug);
+				return;
+			}
+		}
+		
+	};
 	
 	public void modificarJuguete(int codigo, double valorUnitario, double valorAdicional, 
 			int complejidad, int tipo, String marca,
@@ -128,26 +122,16 @@ public class Operador {
 	}
 
 
-	public void mostrar(int codigo){
-		Iterator<Juguete> itrJug = listaJuguetes.iterator();
-		
-	while (itrJug.hasNext())	{
-		
-		Juguete juguete = itrJug.next();
-		
-		if (codigo == juguete.getCodigo()){
-			
-			System.out.println("Datos del juguete seleccionado: ");
-			System.out.println("Codigo: " + juguete.getCodigo());
-			System.out.println("Complejidad: " + juguete.getComplejidad());
-			System.out.println("Existencia:  " + juguete.getEnExistencia());
-			System.out.println("Marca:  " +juguete.getMarca());
-			System.out.println("Precio Venta: " +juguete.getPrecioVenta());
-			System.out.println("Requisito Edad: " +juguete.getRequesitoEdad());
-			System.out.println("Tipo: (0 mecanico, 1 electronico " +juguete.getTipo());
+	public void mostrarJuguetes(){
+		if(listaJuguetes.size()!=0)
+		for (int i=0;i<listaJuguetes.size();i++)
+		{		System.out.print(listaJuguetes.get(i).getCodigo()+ ", " + listaJuguetes.get(i).getNombre() +", "+ listaJuguetes.get(i).getMarca()+", Precio Venta: " + listaJuguetes.get(i).getPrecioVenta());
+				if(listaJuguetes.get(i).getTipo()==1)
+					System.out.print("  Tipo: Mecanico.  Complejidad: " +listaJuguetes.get(i).getComplejidad() );
+				else
+					System.out.print("  Tipo: Electronico");
+				System.out.println (" , Requesito Edad: "+ listaJuguetes.get(i).getRequesitoEdad() + "Proveedor: "+ listaJuguetes.get(i).getNumProveedor() );
 		}
-		}
-	}
 	}
 	
 	
