@@ -1,3 +1,10 @@
+//Universidad Del Valle de Guatemala
+//Juan Carlos Tapia 14133
+//Leonel Guillen 1414451
+//Rodrigo Castro 14092
+//Hugo Noriega 14097
+//Ejercicio de jugueteria 
+
 import java.util.Scanner;
 public class Interfaz {
 
@@ -83,7 +90,7 @@ public class Interfaz {
 						break;
 						//se va al operador y hace la funcion de listar los proveedores con mas de 10 juguetes
 					case 2:
-						
+						//al ingresar ell nombre de un proveedor busca y desplega la cantidad de juguetes
 						entradaEscaner.nextLine ();
 						inventario.mostrarProveedores();
 						if (!inventario.getListaProveedores().isEmpty())
@@ -96,17 +103,21 @@ public class Interfaz {
 						break;	
 						
 					case 3:
+						//busca el juguete mas caro
 						inventario.MayorPrecioVenta();
 						break;
 						
 					case 4:
+						//ordena los juguetes mecanicos por complejidad
 						inventario.MecanicosPorComplejidad();
 						break;
 					
 					case 5:
+						// ordena los juguetes Electronicos por precio de venta
 						inventario.ElectronicosPorPrecioVenta();
 						break;
 					case 6:
+						//ordena los dos tipos de juguetes de un proveedor
 						entradaEscaner.nextLine ();
 						inventario.mostrarProveedores();
 						if (!inventario.getListaProveedores().isEmpty())
@@ -118,6 +129,7 @@ public class Interfaz {
 						inventario.ElectronicosyMecanicosPorProveedor(nombre);
 						break;
 					case 7:
+						//ordena la cantidad de proveedores por tipo de juguete
 						entradaEscaner.nextLine ();
 						System.out.println("Ingrese un tipo de juguete. 1 Mecanico.  2. Electronico  ");
 						tipoJuguete = entradaEscaner.nextInt();
@@ -125,11 +137,13 @@ public class Interfaz {
 						break;
 					
 					case 8: 
+						//todos los juguetes
 						inventario.mostrarJuguetes();
 						break;
 					
 					
 					case 9: 
+						//todos los proveedores
 						inventario.mostrarProveedores();
 						break;
 				}
@@ -137,7 +151,7 @@ public class Interfaz {
 					
 					} while (opcion2 !=10);
 				}
-				
+				//si el uduario es un administrador tiene distinto menu
 				if (tipoUsuario == 2)
 				{
 					do {
