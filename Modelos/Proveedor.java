@@ -1,3 +1,10 @@
+//Universidad Del Valle de Guatemala
+//Juan Carlos Tapia 14133
+//Leonel Guillen 1414451
+//Rodrigo Castro 14092
+//Hugo Noriega 14097
+//Ejercicio de jugueteria 
+
 import java.awt.List;
 import java.util.ArrayList;
 
