@@ -3,7 +3,7 @@ public class Interfaz {
 
 	public static void main(String[] args) {
 		System.out.println("Bienvenido");
-		//test
+		
 		Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
 		String nombre ="";
 		String clave ="";
@@ -33,6 +33,7 @@ public class Interfaz {
 		
 		
 		do{
+		//imprime en pantalla el menu principal 
 		System.out.println("¿Que desea hacer?");
 		System.out.println("1. Ingresar");
 		System.out.println("2. Crear Usuario");
@@ -41,7 +42,7 @@ public class Interfaz {
 		System.out.println("");
 		
 		
-		
+		//dependiendo del input desplega distintas opciones 
 		if(opcion1 == 1){
 			entradaEscaner.nextLine ();
 			System.out.println("Ingrese su nombre:  ");
