@@ -14,13 +14,13 @@ public class Proveedor {
 	private ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
 	
 	
-	
+	//constructor
 	public Proveedor(String nombre, int numero) {
 		super();
 		this.nombre = nombre;
 		this.numero = numero;
 	}
-	
+	//sets y gets
 	public String getNombre() {
 		return nombre;
 	}
