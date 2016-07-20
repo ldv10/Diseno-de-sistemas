@@ -14,6 +14,7 @@ public class Operador {
 	//Declaracion de arreglos de tipo objeto de las respectivas clases
 	private ArrayList<Juguete> listaJuguetes = new ArrayList<Juguete>();
 	private ArrayList<Proveedor> listaProveedores = new ArrayList<Proveedor>();
+	// contadores que cambian cada vez que se ingresa un juguete o proveedor, para que todos tengan un codigo diferente.
 	private int codigoProv = 0;
 	private int codigoJug = 0;
 	
@@ -21,6 +22,7 @@ public class Operador {
 	
 	}
 
+	//Despliega todos los proveedores
 	public void mostrarProveedores(){
 		if(listaProveedores.size()!=0)
 		for (int i=0;i<listaProveedores.size();i++)
@@ -44,6 +46,7 @@ public class Operador {
 		}
 	}
 	
+	// Se ingresa un nuevo proveedor
 	public void IngresarProveedor(String nombre){
 		
 		Proveedor nuevoProv = new Proveedor(nombre, codigoProv+1);
@@ -65,11 +68,12 @@ public class Operador {
 			}
 	};
 	
-	
+	// Se elimina un proveedor
 	public void EliminarProveedor(int numero){
 		if (listaProveedores.size()==0)
 			System.out.println("No hay proveedores");
 		else
+		// Se busca el codigo en la lista al recorrerla, y se elimina cuando se encuentra el proveedor con ese codigo.
 			for (int i=0;i<listaProveedores.size();i++)
 			{
 				if(listaProveedores.get(i).getNumero()== numero)
@@ -160,11 +164,11 @@ public class Operador {
 			System.out.println("No hay proveedores");
 		}
 		else
-		{
+		{	// Se recorre la lista de proveedores y se imprimen los que tienen mas de 10 juguetes.
 			for (int i=0;i<listaProveedores.size();i++)
 			{	if (listaProveedores.get(i).getJuguetes().size() >= 10)	
 				{	
-					validos++;
+					validos++; // Se lleva un contador de cuantos son.
 					if(validos==1)
 						System.out.println("Los proveedores con mas de 10 juguetes son: ");
 						
@@ -176,11 +180,12 @@ public class Operador {
 		}
 	}
 	
+	// Se cuenta cuantos juguetes tiene un proveedor
 	public void CuantosJuguetesTieneProveedor(String nombre){
 		if(listaProveedores.size()==0)
 			System.out.println("No hay proveedores");
 		else
-		{
+		{	// Se recorre la lista de proveedores para buscar al proveedor que se ingreso, y luego se despliega el tamaño de su lista de juguetes.
 			for (int i=0;i<listaProveedores.size();i++)
 			{
 				if (listaProveedores.get(i).getNombre().equals(nombre)){
@@ -257,6 +262,7 @@ public class Operador {
 		}
 	}
 	
+	// Es el mismo proceso cunado se conto cuantos juguetes tiene un proveedor, pero ahora se analiza cada uno de sus juguetes para separarlos por tipo.
 	public void ElectronicosyMecanicosPorProveedor(String nombre)
 	{
 	if(listaProveedores.size()==0)
@@ -326,6 +332,8 @@ public class Operador {
 		
 	}
 	
+	
+	// Setters y Getters
 	public ArrayList<Juguete> getListaJuguetes() {
 		return listaJuguetes;
 	}
