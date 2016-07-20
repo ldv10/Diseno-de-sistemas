@@ -1,35 +1,14 @@
-public class Usuario {
-	private String nombre, usuario, contrasena;
-	private boolean active;
-	private int id;
 
-	/* 
-		Constructor
-	*/
-	public Usuario(String nombre, String usuario, String contrasena, int id) {
+public class Usuario {
+	private String nombre, contrasena;
+
+	private int tipo, id;
+	public Usuario(String nombre, String contrasena, int tipo, int id) {
+		super();
+		this.nombre = nombre;
+		this.contrasena = contrasena;
 		this.id = id;
-		this.nombre = nombre;
-		this.usuario = usuario;
-		this.contrasena = contrasena;
-		this.active = false;
-	}
-	/* 
-		Getters - Setters
-	*/
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-	public void setContrasena(String contrasena){
-		this.contrasena = contrasena;
+		this.tipo = tipo;
 	}
 	public int getId() {
 		return id;
@@ -37,14 +16,28 @@ public class Usuario {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public boolean isActive() {
-		return active;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public boolean validarUsuario(String usuario, String contrasena) {
-		return this.usuario.equals(usuario) && this.contrasena.equals(contrasena);
+	public String getContrasena() {
+		return contrasena;
 	}
-
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	
+	public int getTipo() {
+		return tipo;
+	}
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+	
+	
+	
+	
+	
 }
