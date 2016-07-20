@@ -44,6 +44,7 @@ public class Interfaz {
 		
 		//dependiendo del input desplega distintas opciones 
 		if(opcion1 == 1){
+			//Lsa opcion 1 es para ingresar 
 			entradaEscaner.nextLine ();
 			System.out.println("Ingrese su nombre:  ");
 			nombre = entradaEscaner.nextLine ();
@@ -56,12 +57,12 @@ public class Interfaz {
 			{	
 				System.out.println("Inicio sesion. Bienvenido "+ nombre);
 				tipoUsuario = conUs.getListaUsuarios().get(userNum).getTipo();
-				
+				//dependiendo el tipo de trabajador se desplegan distintos menus
 				if(tipoUsuario == 1){
 					
 					do{
 					System.out.println("¿Que desea hacer?");
-					
+					//menu para trabajador normal
 					System.out.println("1. Listar proveedores con mas de 10 juguetes");
 					System.out.println("2. Cantidad de juguetes de un proveedor");
 					System.out.println("3. Mostrar Juguete con mayor precio de venta");
@@ -80,7 +81,7 @@ public class Interfaz {
 					case 1:
 						inventario.listarProveedores10();
 						break;
-						
+						//se va al operador y hace la funcion de listar los proveedores con mas de 10 juguetes
 					case 2:
 						
 						entradaEscaner.nextLine ();
