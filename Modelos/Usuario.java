@@ -5,6 +5,7 @@
 //Hugo Noriega 14097
 //Ejercicio de jugueteria 
 public class Usuario {
+	//atributos
 	private String nombre, contrasena;
 	//constructor
 	private int tipo, id;
