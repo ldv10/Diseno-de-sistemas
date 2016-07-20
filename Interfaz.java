@@ -3,7 +3,7 @@ public class Interfaz {
 
 	public static void main(String[] args) {
 		System.out.println("Bienvenido");
-		
+		//test
 		Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
 		String nombre ="";
 		String clave ="";
