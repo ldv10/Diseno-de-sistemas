@@ -1,4 +1,7 @@
+import java.util.Comparator;
+
 public class Juguete {
+	private String nombre;
 	private double valorUnitario;
 	private double valorAdicional;
 	private int complejidad;
@@ -8,9 +11,11 @@ public class Juguete {
 	private int requesitoEdad;
 	private double precioVenta;
 	private int enExistencia;
-	public Juguete(double valorUnitario, double valorAdicional, int complejidad, int tipo, int codigo, String marca,
-			int requesitoEdad, int enExistencia) {
+	private int numProveedor;
+	public Juguete( String nombre, double valorUnitario, double valorAdicional, int complejidad, int tipo, String marca,
+			int requesitoEdad, int enExistencia, int numProveedor, int codigo) {
 		super();
+		this.nombre = nombre;
 		this.valorUnitario = valorUnitario;
 		this.valorAdicional = valorAdicional;
 		this.complejidad = complejidad;
@@ -20,10 +25,45 @@ public class Juguete {
 		this.requesitoEdad = requesitoEdad;
 		this.precioVenta = precioVenta;
 		this.enExistencia = enExistencia;
+		this.numProveedor = numProveedor;
 		precioVenta = CalcularPrecioVenta();
 		
 		
 	}
+	
+	
+	public static Comparator<Juguete> ComparadorPrecioVenta = new Comparator<Juguete>() {
+
+		public int compare(Juguete j1, Juguete j2) {
+		   double Juguete1 = j1.getPrecioVenta();
+		   double Juguete2 = j2.getPrecioVenta();
+
+		   //ascending order
+		   return (int)(Juguete2 - Juguete1);
+
+		   //descending order
+		   //return StudentName2.compareTo(StudentName1);
+	    
+
+		
+		}};
+
+	public static Comparator<Juguete> ComparadorComplejidad = new Comparator<Juguete>() {
+
+			public int compare(Juguete j1, Juguete j2) {
+			   int Juguete1 = j1.getComplejidad();
+			   int Juguete2 = j2.getComplejidad();
+
+			   //ascending order
+			   return (Juguete2 - Juguete1);
+
+			   //descending order
+			   //return StudentName2.compareTo(StudentName1);
+		    
+
+			
+			}};
+	
 	
 	public double CalcularPrecioVenta(){
 		if (tipo==1)
@@ -34,6 +74,22 @@ public class Juguete {
 	}
 	
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getNumProveedor() {
+		return numProveedor;
+	}
+
+	public void setNumProveedor(int numProveedor) {
+		this.numProveedor = numProveedor;
+	}
+
 	public double getValorUnitario() {
 		return valorUnitario;
 	}
@@ -89,7 +145,13 @@ public class Juguete {
 		this.enExistencia = enExistencia;
 	}
 	
-	
+	public int compareTo(Juguete c) {
+        if (getPrecioVenta()<c.getPrecioVenta()){
+            return -1;
+        }else{
+            return 1;
+        }
+    }
 	
 	
 }
