@@ -12,6 +12,8 @@ public class Interfaz {
 		System.out.println("Bienvenido");
 		
 		Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
+		
+		// Variables para ingreso de datos con el teclado
 		String nombre ="";
 		String clave ="";
 		int tipoUsuario = 0;
@@ -32,13 +34,15 @@ public class Interfaz {
 		
 		
 		
-		
+		// Creacion del controlador de usuarios
 		ControladorUsuarios conUs = new ControladorUsuarios();
+		
+		// Creacion del Operador de inventario
 		Operador inventario = new Operador();
 		
 		
 		
-		
+		// Este ciclo continua hasta que se ingresa la opcion de salida
 		do{
 		//imprime en pantalla el menu principal 
 		System.out.println("¿Que desea hacer?");
@@ -51,7 +55,7 @@ public class Interfaz {
 		
 		//dependiendo del input desplega distintas opciones 
 		if(opcion1 == 1){
-			//Lsa opcion 1 es para ingresar 
+			//Lsa opcion 1 es para ingresar al sistema. Se ingresan los datos.
 			entradaEscaner.nextLine ();
 			System.out.println("Ingrese su nombre:  ");
 			nombre = entradaEscaner.nextLine ();
@@ -60,16 +64,17 @@ public class Interfaz {
 			System.out.println("Ingrese su contraseña:  ");
 			clave = entradaEscaner.nextLine ();
 			int userNum  =conUs.validarUsuario(nombre, clave);
+			// Si se ingreso un usuario y contraseña valida, entonces se ingresa al sistema
 			if(userNum>=0)
 			{	
 				System.out.println("Inicio sesion. Bienvenido "+ nombre);
 				tipoUsuario = conUs.getListaUsuarios().get(userNum).getTipo();
 				//dependiendo el tipo de trabajador se desplegan distintos menus
-				if(tipoUsuario == 1){
+				if(tipoUsuario == 1){ //Operador de caja
 					
 					do{
 					System.out.println("¿Que desea hacer?");
-					//menu para trabajador normal
+					//menu para trabajador de caja
 					System.out.println("1. Listar proveedores con mas de 10 juguetes");
 					System.out.println("2. Cantidad de juguetes de un proveedor");
 					System.out.println("3. Mostrar Juguete con mayor precio de venta");
@@ -80,7 +85,7 @@ public class Interfaz {
 					System.out.println("8. Ver juguetes");
 					System.out.println("9. Ver proveedores");
 					System.out.println("10. Salir");
-					
+					 // Se ingresa la accion que se desea
 					opcion2 = entradaEscaner.nextInt ();
 					System.out.println("");
 					switch (opcion2){
@@ -117,7 +122,7 @@ public class Interfaz {
 						inventario.ElectronicosPorPrecioVenta();
 						break;
 					case 6:
-						//ordena los dos tipos de juguetes de un proveedor
+						//Muestra cuantos juguetes mecanicos y electronicos tiene un proveedor.
 						entradaEscaner.nextLine ();
 						inventario.mostrarProveedores();
 						if (!inventario.getListaProveedores().isEmpty())
@@ -129,7 +134,7 @@ public class Interfaz {
 						inventario.ElectronicosyMecanicosPorProveedor(nombre);
 						break;
 					case 7:
-						//ordena la cantidad de proveedores por tipo de juguete
+						//muestra cantidad de proveedores por tipo de juguete
 						entradaEscaner.nextLine ();
 						System.out.println("Ingrese un tipo de juguete. 1 Mecanico.  2. Electronico  ");
 						tipoJuguete = entradaEscaner.nextInt();
@@ -151,7 +156,7 @@ public class Interfaz {
 					
 					} while (opcion2 !=10);
 				}
-				//si el uduario es un administrador tiene distinto menu
+				//si el uduario es un encargado de inventario tiene distinto menu
 				if (tipoUsuario == 2)
 				{
 					do {
@@ -397,11 +402,11 @@ public class Interfaz {
 					
 				}
 				
-				
+				//finalmente si es un rango mayor tiene las mismas opciociones que el encargado de inventario, pero tambien puede modificar usuarios.
 				if(tipoUsuario == 3){
 					do {
 						System.out.println("¿Que desea hacer?");
-						//finalmente si es un rango mayor tiene las mismas opciones y mas
+						
 						System.out.println("1. Ingresar proveedor");
 						System.out.println("2. Modificar proveedor");
 						System.out.println("3. Eliminar proveedor");
