@@ -5,7 +5,7 @@
 //Hugo Noriega 14097
 //Ejercicio de jugueteria 
 import java.util.Comparator;
-
+//Se importa el comparador
 //Atributos requeridos para cada juguete
 
 public class Juguete {
