@@ -108,6 +108,25 @@ public class Operador {
 		
 	}
 	
+	public void EliminarJuguete(int codigo){
+		if (listaJuguetes.size()==0)
+			System.out.println("No hay juguetes");
+		else
+			for (int i=0;i<listaJuguetes.size();i++)
+			{
+				if (codigo == listaJuguetes.get(i).getCodigo()){
+					
+					for (int j=0;j<listaProveedores.size();j++)
+					{	if(listaProveedores.get(j).getNumero()== listaJuguetes.get(i).getNumProveedor())
+							listaProveedores.get(j).eliminarJ(listaJuguetes.get(i));;
+					}
+					listaJuguetes.remove(i);
+					
+				}
+			
+			}
+	}
+
 
 	public void mostrar(int codigo){
 		Iterator<Juguete> itrJug = listaJuguetes.iterator();
