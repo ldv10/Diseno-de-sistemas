@@ -178,6 +178,7 @@ public class Interfaz {
 						
 						switch (opcion2){
 						case 1: 
+							//esta opcion permite ingresar proveedores al sistema
 							entradaEscaner.nextLine ();
 							System.out.println("Ingrese el nombre del proveedor:  ");
 							nombre = entradaEscaner.nextLine ();
@@ -185,6 +186,7 @@ public class Interfaz {
 							break;
 							
 						case 2: 
+							//esta opcion permite modificar proveedor
 							entradaEscaner.nextLine ();
 							inventario.mostrarProveedores();
 							if (!inventario.getListaProveedores().isEmpty())
@@ -200,6 +202,7 @@ public class Interfaz {
 						
 							
 						case 3: 
+							//esta opcion permite eliminar proveedores
 							entradaEscaner.nextLine ();
 							inventario.mostrarProveedores();
 							if (!inventario.getListaProveedores().isEmpty())
@@ -212,6 +215,8 @@ public class Interfaz {
 							break;
 						
 						case 4:
+							//esta opcion permite Ingresar juguete
+						
 							entradaEscaner.nextLine ();
 							if(inventario.getListaProveedores().isEmpty())
 							{
@@ -262,9 +267,12 @@ public class Interfaz {
 					
 							
 						case 5:
+							//aca se modificar juguete
+						
 							inventario.mostrarJuguetes();
 							if (!inventario.getListaJuguetes().isEmpty())
 							{
+								//para modificar un juguete se busca el el juguete por codigo
 								System.out.println("Ingrese el numero del codigo del juguete que quiere modificar:  ");
 								numero = entradaEscaner.nextInt ();
 								entradaEscaner.nextLine ();
@@ -307,6 +315,7 @@ public class Interfaz {
 							
 							break;
 						case 6:
+							//Eliminar juguete se busca por codigo
 							entradaEscaner.nextLine ();
 							inventario.mostrarJuguetes();
 							if (!inventario.getListaProveedores().isEmpty())
@@ -319,11 +328,12 @@ public class Interfaz {
 							break;
 							
 						case 7:
+							//se imprime en pantalla los probeedores con mas de 10 juguetes
 							inventario.listarProveedores10();
 							break;
 							
 						case 8:
-							
+							//muestra en pantalla los proveedores con mas de 10 juguetes
 							entradaEscaner.nextLine ();
 							inventario.mostrarProveedores();
 							if (!inventario.getListaProveedores().isEmpty())
@@ -336,17 +346,21 @@ public class Interfaz {
 							break;	
 							
 						case 9:
+							//ordena los juguetes por precio de venta
 							inventario.MayorPrecioVenta();
 							break;
 							
 						case 10:
+							//ordena los juguetes mecanicos por complejidad
 							inventario.MecanicosPorComplejidad();
 							break;
 						
 						case 11:
+							//ordena los juguetes electronicos [pro precio de venta]
 							inventario.ElectronicosPorPrecioVenta();
 							break;
 						case 12:
+							//imprime los juguetes de un proveedor 
 							entradaEscaner.nextLine ();
 							inventario.mostrarProveedores();
 							if (!inventario.getListaProveedores().isEmpty())
@@ -358,6 +372,7 @@ public class Interfaz {
 							inventario.ElectronicosyMecanicosPorProveedor(nombre);
 							break;
 						case 13:
+							//imprime los proveedores dependiendo el tipo de juguete
 							entradaEscaner.nextLine ();
 							System.out.println("Ingrese un tipo de juguete. 1 Mecanico.  2. Electronico  ");
 							tipoJuguete = entradaEscaner.nextInt();
@@ -365,11 +380,13 @@ public class Interfaz {
 							break;
 						
 						case 14: 
+							//imprime todo el inventario
 							inventario.mostrarJuguetes();
 							break;
 						
 						
 						case 15: 
+							//imprime todos los proveedores
 							inventario.mostrarProveedores();
 							break;
 					}
@@ -384,7 +401,7 @@ public class Interfaz {
 				if(tipoUsuario == 3){
 					do {
 						System.out.println("¿Que desea hacer?");
-						
+						//finalmente si es un rango mayor tiene las mismas opciones y mas
 						System.out.println("1. Ingresar proveedor");
 						System.out.println("2. Modificar proveedor");
 						System.out.println("3. Eliminar proveedor");
@@ -635,6 +652,7 @@ public class Interfaz {
 		}
 		
 		if (opcion1 == 2){
+			//cuando el usuario tiene que registrarse
 			entradaEscaner.nextLine ();
 			System.out.println("Ingrese su nombre:  ");
 			nombre = entradaEscaner.nextLine ();
@@ -653,7 +671,7 @@ public class Interfaz {
 		
 		} while (opcion1!=3);
 
-		
+		//saludo de despedida
 		System.out.println("Hasta pronto");
 	}
 
