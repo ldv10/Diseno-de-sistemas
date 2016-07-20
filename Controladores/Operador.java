@@ -5,6 +5,7 @@ import java.util.Comparator;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class Operador {
+	//Declaracion de arreglos de tipo objeto de las respectivas clases
 	private ArrayList<Juguete> listaJuguetes = new ArrayList<Juguete>();
 	private ArrayList<Proveedor> listaProveedores = new ArrayList<Proveedor>();
 	private int codigoProv = 0;
@@ -23,10 +24,11 @@ public class Operador {
 		}
 	}
 	
-	
+	//Despliega los datos de los jueguetes
 	public void mostrarJuguetes(){
-		if(listaJuguetes.size()!=0)
-		for (int i=0;i<listaJuguetes.size();i++)
+		if(listaJuguetes.size()!=0) //La lista de Juguetes debe contener al menos un elemento
+		for (int i=0;i<listaJuguetes.size();i++) //Se recorre la lista
+		//Se imprimen los datos
 		{		System.out.print(listaJuguetes.get(i).getCodigo()+ ", " + listaJuguetes.get(i).getNombre() +", "+ listaJuguetes.get(i).getMarca()+", Precio Venta: " + listaJuguetes.get(i).getPrecioVenta());
 				if(listaJuguetes.get(i).getTipo()==1)
 					System.out.print("  Tipo: Mecanico.  Complejidad: " +listaJuguetes.get(i).getComplejidad() );
@@ -72,13 +74,16 @@ public class Operador {
 			}
 	};
 
-
+	
 	public void IngresarJuguete(String nombre, double valorUnitario, double valorAdicional, int complejidad, int tipo, String marca,
 			int requesitoEdad, int enExistencia, int numProveedor){
-		
+		//Se llama a el constructor de la clase Juguetes, se da sus respectivos atributos
+		//Se crea el objeto de tipo Juguete
 		Juguete nuevoJug = new Juguete(nombre, valorUnitario, valorAdicional, complejidad, tipo, marca, requesitoEdad, enExistencia, numProveedor, codigoJug+1);
 		listaJuguetes.add(nuevoJug);
 		codigoJug++;
+		//Se hace la realcion entre los proovedores y los juguetes, agregando a la lista de proovedores
+		// un juguete
 		for (int i=0;i<listaProveedores.size();i++)
 		{	if(listaProveedores.get(i).getNumero()== numProveedor)
 			{
@@ -89,18 +94,20 @@ public class Operador {
 		
 	};
 	
-	
+	//Modificar un juguete
 	public void modificarJuguete(int codigo, String nombre, double valorUnitario, double valorAdicional, 
 			int complejidad, int tipo, String marca, int requesitoEdad, int enExistencia, int numProveedor){
 		
+		//Debe validar que exista un juguete que modificar
 		if (listaJuguetes.size()==0)
 			System.out.println("No hay juguetes");
 		else
 			for (int i=0;i<listaJuguetes.size();i++)
 			{
 				
-			
+			//Se hace una busqueda por medio del codigo del juguete, recorriendo todos los codigos almacenados
 				if (codigo == listaJuguetes.get(i).getCodigo()){
+					//Se modifica cada atributo por medio de los SETS
 					listaJuguetes.get(i).setNombre(nombre);
 					listaJuguetes.get(i).setCodigo(codigo);
 					listaJuguetes.get(i).setComplejidad(complejidad);
@@ -118,15 +125,17 @@ public class Operador {
 		
 	}
 	
-	
+	//Eliminacion de Juguetes
 	public void EliminarJuguete(int codigo){
 		if (listaJuguetes.size()==0)
 			System.out.println("No hay juguetes");
 		else
+			//Se elimina por medio del codigo
 			for (int i=0;i<listaJuguetes.size();i++)
 			{
 				if (codigo == listaJuguetes.get(i).getCodigo()){
 					
+					//Se recorre y se elimina el juguete de acuerdo al codigo ingresado
 					for (int j=0;j<listaProveedores.size();j++)
 					{	if(listaProveedores.get(j).getNumero()== listaJuguetes.get(i).getNumProveedor())
 							listaProveedores.get(j).eliminarJ(listaJuguetes.get(i));;
@@ -178,19 +187,21 @@ public class Operador {
 		}
 	}
 	
-	
+	//Despliega el jueugete con el mayor precio 
 	public void MayorPrecioVenta(){
 		
-		
+		//Se ordena la lista, con el atributo del precio Venta
 		ArrayList<Juguete> nuevalista = listaJuguetes;
 		Collections.sort(nuevalista,Juguete.ComparadorPrecioVenta);
 		System.out.println("El juguete con mayor precio de venta es: " + nuevalista.get(0).getNombre()+ "con un precio de " + nuevalista.get(0).getPrecioVenta() + "  Codigo: " + nuevalista.get(0).getCodigo());
 		
 		
 	}
-	
+	//Se genera una lista de los jueguetes mecanicos de acuerdo a su complejidad
 	public void MecanicosPorComplejidad(){
+		//Se crea la lista donde se guardara
 		ArrayList<Juguete> nuevalista = listaJuguetes;
+		//Se hace un sort, con el filtro de complejidad
 		Collections.sort(nuevalista,Juguete.ComparadorComplejidad);
 		System.out.println("Lista de juguetes mecanicos por complejidad:");
 		if(nuevalista.size()==0)
@@ -198,6 +209,7 @@ public class Operador {
 		else
 		{
 			System.out.println("Lista de juguetes mecanicos por complejidad:");
+			//Se recorre la lista para determinar cuales pertenecen a determinada categoria
 			for (int i=0;i<nuevalista.size();i++)
 			{
 				if(nuevalista.get(i).getTipo()==1)
@@ -211,15 +223,19 @@ public class Operador {
 			}
 		}
 	}
+	//Ordena a los juguetes electronicos por su precio 
 	
 	public void ElectronicosPorPrecioVenta(){
+		//Lista donde se guardara lo encontrado
 		ArrayList<Juguete> nuevalista = listaJuguetes;
+		//Se hace un sort, con el flitro del precio de venta
 		Collections.sort(nuevalista,Juguete.ComparadorPrecioVenta);
 		System.out.println("Lista de juguetes mecanicos por complejidad:");
 		if(nuevalista.size()==0)
 			System.out.println("No hay Juguetes");
 		else
 		{
+			//Se recorre la lista para  desplegar los juguetes de acuerdo a su complejidad
 			System.out.println("Lista de juguetes mecanicos por complejidad:");
 			for (int i=0;i<nuevalista.size();i++)
 			{
