@@ -9,6 +9,7 @@ import java.awt.List;
 import java.util.ArrayList;
 
 public class Proveedor {
+	//atributos
 	private String nombre;
 	private int numero;
 	private ArrayList<Juguete> juguetes = new ArrayList<Juguete>();
