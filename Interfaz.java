@@ -20,6 +20,7 @@ public class Interfaz {
 		int numProveedor = 0;
 		int enExistencia = 0;
 		int edadMinima = 0;
+		int id=0;
 		
 		
 		
@@ -28,7 +29,9 @@ public class Interfaz {
 		ControladorUsuarios conUs = new ControladorUsuarios();
 		Operador inventario = new Operador();
 		
-		conUs.nuevoUsuario("1", "1", 2);
+		conUs.nuevoUsuario("1", "1", 1);
+		conUs.nuevoUsuario("2", "2", 2);
+		conUs.nuevoUsuario("3", "3", 3);
 		inventario.IngresarProveedor("John");
 		inventario.IngresarProveedor("men");
 		inventario.IngresarJuguete("uno", 1, 1, 1, 1, "mar", 1, 1, 1);
@@ -595,7 +598,21 @@ public class Interfaz {
 							inventario.mostrarProveedores();
 							break;
 						case 16: 
-						
+							entradaEscaner.nextLine ();
+							conUs.mostrarUsuarios();
+							System.out.println("Ingrese el numero del usuario que desea modificar:  ");
+							id = entradaEscaner.nextInt ();
+							
+							entradaEscaner.nextLine ();
+							System.out.println("Ingrese el nuevo nombre del usuario:  ");
+							nombre = entradaEscaner.nextLine ();
+							
+							
+							System.out.println("Ingrese la nueva posicion del usuario.  1. Empleado de caja.  2 Encargado de inventario.  3.  Director de tienda" );
+							tipoUsuario = entradaEscaner.nextInt ();
+							
+							
+							conUs.modificarUsuario(id, nombre, tipoUsuario);
 							break;
 					}
 						
@@ -631,7 +648,10 @@ public class Interfaz {
 		}
 		
 		} while (opcion1!=3);
+
 		
+		System.out.println("Hasta pronto");
 	}
+
 
 }
